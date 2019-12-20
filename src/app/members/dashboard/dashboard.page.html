@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button class="menuIcon"></ion-menu-button>
+    </ion-buttons>
+    <ion-title [ngStyle]="getHeaderStyle()">
+      <!-- <img src="assets/imgs/new-hrms.png" class="whiteLogo"> -->
+    </ion-title>
+    <div *ngIf="roleId != '1'" class="notification-div">
+      <ion-icon ios=""ios-more md="md-more" (click)="presentPopover($event)" class="notificationIcon"></ion-icon>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content no-bounce class="background-content" >
+  <div class="profile-card-div" [ngStyle]="getstyle()">
+    <ion-card class="home-card" [ngStyle]="getstyle()">
+      <div class="home-header">
+        <img src="/assets/images/logo.svg" class="logo slide-in">
+        <p style="color:rgba(255, 255, 255, 0.904);font-size: 16px;margin-top: 1vh;"><b style="font-size: 26px;">A</b>utomation <b
+            style="font-size: 26px;">I</b>ntegration</p>
+      </div>
+    </ion-card>
+  </div>
+  <div class="home-data-card">
+    <div class="dashboard-area">
+      <ion-row class="dashboard-row">
+        <ion-col col-6 class="dashboard-col" [ngClass]="cssClass">
+          <div class="dash-widget" [routerLink]="'/drums'" routerDirection="forward" (click)="feedback(0);" #myElement>
+            <div class="dash-widget-icon">
+              <ion-icon src="/assets/images/drums.svg" class="home-icon"></ion-icon>
+            </div>
+            <div class="dash-widget-info">
+              <p class="dash-text">Bottali</p>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col col-6 [ngClass]="cssClass" class="dashboard-col">
+          <div class="dash-widget" [routerLink]="'/storage'" routerDirection="forward">
+            <div class="dash-widget-icon">
+              <ion-icon src="/assets/images/tanks.svg" class="home-icon"></ion-icon>
+            </div>
+            <div class="dash-widget-info">
+              <p class="dash-text">Depositi</p>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="dashboard-row">
+        <ion-col col-6 [ngClass]="cssClass" class="dashboard-col">
+          <div class="dash-widget" [routerLink]="'/odplist/1'" routerDirection="forward">
+            <div class="dash-widget-icon">
+              <ion-icon src="/assets/images/products.svg" class="home-icon"></ion-icon>
+            </div>
+            <div class="dash-widget-info">
+              <p class="dash-text">ODP</p>
+            </div>
+          </div>
+        </ion-col>
+
+
+        <ion-col *ngIf="roleId != '3'" col-6 [ngClass]="cssClass" class="dashboard-col">
+          <div class="dash-widget" [routerLink]="'/alarms'" routerDirection="forward">
+            <div class="dash-widget-icon">
+              <ion-icon src=" /assets/images/alarms.svg " class="home-icon"></ion-icon>
+            </div>
+            <div class="dash-widget-info">
+              <p class="dash-text">Allarmi</p>
+            </div>
+          </div>
+        </ion-col>
+
+      </ion-row>
+    </div>
+  </div>
+</ion-content>

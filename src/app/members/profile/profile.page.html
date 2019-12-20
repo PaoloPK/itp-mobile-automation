@@ -1,0 +1,127 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-back-button  class="notificationIcon"></ion-back-button>
+        </ion-buttons>
+    <ion-title>Profilo
+  
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+  
+  <ion-content no-bounce class="background-content">
+    <div class="scroll">
+      <div class="profile-card-div" [ngStyle]="getstyle()">
+        <ion-card class="profile-card" [ngStyle]="getstyle()">
+          <div class="profile-header">
+            <img *ngIf="profileImage" src="{{profileImage}}" class="profile-pic" (error)="console.log(error); setDefaultPic()">
+          </div>
+          <div class="profile-header-field">
+            <h2 class="profile-name">{{user_data.nome}} {{user_data.cognome}}</h2>
+            <h2 class="profile-designation">{{user_data.mansione}}</h2>
+          </div>
+        </ion-card>
+      </div>
+
+    </div>
+    <div id="scroll1">
+    
+          <ion-list class="profile-list">
+            <ion-item class="profile-item" style="border-bottom: 1px solid #e7e7e7 !important;">
+              <div class="holiday-card">
+                <h4 class="profile-title">ID Utente</h4>
+                <span class="profile-inner-item">{{user_data.id}}</span>
+              </div>
+            </ion-item>
+            <ion-item class="profile-item" style="border-bottom: 1px solid #e7e7e7 !important;">
+              <div class="holiday-card">
+                <h4 class="profile-title">Ruolo</h4>
+                <span class="profile-inner-item">{{user_data.role}}</span>
+              </div>
+            </ion-item>
+            <ion-item class="profile-item" style="border-bottom: 1px solid #e7e7e7 !important;">
+              <div class="holiday-card">
+                <h4 class="profile-title">Email</h4>
+                <span class="profile-inner-item">{{user_data.email}}</span>
+              </div>
+            </ion-item><!--
+            <ion-item class="profile-item" style="border-bottom: 1px solid #e7e7e7 !important;">
+              <div class="holiday-card">
+                <h4 class="profile-title">Birthday</h4>
+                <span class="profile-inner-item">{{profileData.dob}}</span>
+              </div>
+            </ion-item>
+            <ion-item class="profile-item" style="border-bottom: 1px solid #e7e7e7 !important;">
+              <div class="holiday-card">
+                <h4 class="profile-title">Gender</h4>
+                <span class="profile-inner-item">{{profileData.gender}}</span>
+              </div>
+            </ion-item>-->
+          </ion-list>
+          <ion-list class="profile-list">
+            <ion-item class="profile-item">
+              <div class="holiday-card">
+                <h4 class="holiday-title">Indirizzo</h4>
+                <p class="profile-address"><span *ngIf="profileData.address !=''">{{user_data.address}}</span></p>
+              </div>
+            </ion-item>
+          </ion-list>
+    
+    </div>
+  </ion-content>
+
+<!--<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/menu/dashboard/']" routerDirection="backward">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>PROFILO</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content no-padding>
+  <ion-grid no-margin no-padding style="height: 40%;">
+    <ion-row style="height:100%;">
+      <ion-col class="bg-class">
+        <ion-row style="text-align: center;height: 80%;">
+          <div style="text-align: center;width:100%;">
+            <ion-icon name="person" style="font-size: 75px;color: white;margin-top: 14px;margin-left: 0px; "></ion-icon>
+
+          </div>
+        </ion-row>
+        <ion-row style="text-align: center;">
+          <div style="color:white;width:100%;">
+            Federico Pinciaroli
+          </div>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  
+  </ion-grid>
+  <div style="background: gray;width: 100%;height:15px;">
+
+  </div>
+
+  
+    <ion-button size="large" fill="outline" class=" button button-full">
+ 
+            <ion-icon size="large" slot="start" name="mail"></ion-icon>
+            <ion-badge class="badge-class" color="danger">3</ion-badge>
+       
+          Messaggi
+        </ion-button>
+
+
+        <ion-button size="large" fill="outline" class="button button-full">
+          
+            <ion-icon size="large" slot="start" name="list"></ion-icon>
+            <ion-badge class="badge-class" color="danger">5</ion-badge>
+        
+          Tasks
+        </ion-button>
+
+</ion-content>-->

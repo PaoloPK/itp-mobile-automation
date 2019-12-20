@@ -1,0 +1,8 @@
+{
+  "name": "zebraApp",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

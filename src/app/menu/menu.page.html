@@ -1,0 +1,57 @@
+
+    <ion-menu>
+    
+          <ion-header >
+            <ion-toolbar style="--background:var(--ion-color-primary);color: white;" >
+              <ion-title>Menu</ion-title>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content class="side-menu"  >
+              <div   style="--background:transparent; " *ngFor="let p of pages">
+
+                  <!-- Standard Menu Item -->
+                  <ion-menu-toggle *ngIf="p.url">
+                    <ion-item style="--background:transparent;color: white;" [routerLink]="p.url" routerDirection="forward" routerLinkActive="active">
+                      <img *ngIf="p.image" [src]="p.image" slot="start" style="color: white; width: 24px;">
+                      <ion-icon *ngIf="p.icon" [name]="p.icon" slot="start" style="color: white"></ion-icon>
+                      <fa-icon *ngIf="p.fontawesome" [icon]="['fas', p.fontawesome]" slot="start" style="color: white;  margin-left: 3px;"></fa-icon>
+                      <ion-label>
+                        {{ p.title }}
+                      </ion-label>
+                    </ion-item>
+                  </ion-menu-toggle>
+                  <!-- Item with Children -->
+             
+                  <ion-item  style="--background:transparent;color: white;" button *ngIf="p.children?.length > 0" (click)="p.open = !p.open" [class.parent-active]="p.open" detail="false">
+                    <img *ngIf="p.image" [src]="p.image" slot="start" style="color: white; width: 24px;">
+                    <ion-icon *ngIf="p.icon" [name]="p.icon" slot="start" style="color: white"></ion-icon>
+                    <fa-icon *ngIf="p.fontawesome" [icon]="['fas', p.fontawesome]" slot="start" style="color: white;  margin-left: 3px;"></fa-icon>
+                      
+                    <ion-icon style="color: white" slot="end" name="arrow-forward" *ngIf="!p.open"></ion-icon>
+                    <ion-icon style="color: white" s slot="end" name="arrow-down" *ngIf="p.open"></ion-icon>
+                    <ion-label>{{ p.title }}</ion-label>
+                  </ion-item>
+             
+                  <!-- Children List for clicked Item -->
+                  <ion-list style="background:transparent;" *ngIf="p.open">
+                    <ion-menu-toggle   >
+                      <ion-item  style="--background:transparent;color: white;padding-left: 20px;" *ngFor="let sub of p.children" class="sub-item" [routerLink]="sub.url" routerDirection="forward"
+                        routerLinkActive="active">
+                        <ion-icon *ngIf="sub.icon"  [name]="sub.icon" slot="start" style="color: white"></ion-icon>
+                        <fa-icon  *ngIf="sub.fontawesome" [icon]="['fas', sub.fontawesome]" slot="start" style="color: white; margin-left: 3px;"></fa-icon>
+                        <img *ngIf="sub.image" [src]="sub.image" slot="start" style="color: white; width: 24px;">
+                        <ion-label>
+                          {{ sub.title }}
+                        </ion-label>
+                      </ion-item>
+                    </ion-menu-toggle>
+                  </ion-list>
+             
+                </div>
+      
+          </ion-content>
+      
+        </ion-menu>
+      
+        <ion-router-outlet id="content" main></ion-router-outlet>
+    
